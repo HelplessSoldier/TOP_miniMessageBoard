@@ -15,4 +15,8 @@ app.get("/", (req, res) => {
   res.render('index', { title: "Home" });
 })
 
+app.get("/new-message", (req, res) => {
+  res.render('newMessagePage', { title: "New" });
+})
+
 app.listen(PORT);
