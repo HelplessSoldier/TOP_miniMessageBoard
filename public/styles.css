@@ -8,6 +8,11 @@ body {
 }
 
 .formEmptyWarning {
-  visibility: hidden;
+  display: none;
   color: #ff722b;
+}
+
+.formSubmittedSuccessfullyText {
+  display: none;
+  color: green;
 }

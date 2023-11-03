@@ -1,14 +1,18 @@
 document.addEventListener('DOMContentLoaded', (e) => {
   const messageForm = document.getElementById('messageForm')
   const warning = document.getElementById('formEmptyWarning');
+  const successText = document.getElementById('formSubmittedSuccessfullyText');
 
   messageForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     if (validFields(formData)) {
       postMessage(formData);
+      successText.style.display = 'block';
+      warning.style.display = 'none';
     } else {
-      warning.style.visibility = 'visible';
+      warning.style.display = 'block';
+      successText.style.display = 'none';
     }
   })
 })

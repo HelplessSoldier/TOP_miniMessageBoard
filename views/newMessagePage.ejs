@@ -2,7 +2,6 @@
 <html>
 <%- include("./partials/header.ejs")%>
 <body>
-  <h1>this is the new message page</h1>
   <%- include("./partials/nav.ejs")%>
   <form id="messageForm">
     <input type="text" id="user-name" name="user-name"/>
@@ -11,6 +10,9 @@
   </form>
   <div class="formEmptyWarning" id="formEmptyWarning">
     <p>Please Fill All Entry Fields.</p>
+  </div>
+  <div class="formSubmittedSuccessfullyText" id="formSubmittedSuccessfullyText">
+    <p>Post Successfully Added!</p>
   </div>
   <script src="messageFormSubmition.js"></script>
 </body>
