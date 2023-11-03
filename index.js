@@ -3,8 +3,12 @@ const morgan = require("morgan");
 const path = require("path");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const Message = require("./models/messageSchema");
 
 const PORT = 3000;
+const MONGODB_URL = "mongodb://127.0.0.1:27017/"
+
+mongoConnect(MONGODB_URL);
 
 const app = express();
 app.use(morgan("dev"));
@@ -27,3 +31,12 @@ app.post("/submit-message", (req, res) => {
 })
 
 app.listen(PORT);
+
+async function mongoConnect(url) {
+  try {
+    await mongoose.connect(url);
+    console.log(`Connected to db, url: ${url}`)
+  } catch (err) {
+    console.error(err);
+  }
+}
