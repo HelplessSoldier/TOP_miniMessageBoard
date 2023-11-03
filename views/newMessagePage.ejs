@@ -4,9 +4,11 @@
 <body>
   <%- include("./partials/nav.ejs")%>
   <form id="messageForm">
-    <input type="text" id="user-name" name="user-name"/>
-    <textarea rows="13" cols="55" name="message"></textarea> 
-    <button type="submit">Submit</button>
+    <label for="user-name">User Name: </label>
+    <input type="text" id="usernameInput" name="user-name"/>
+    <label for="message">Message: </label>
+    <textarea rows="13" cols="55" name="message" id="messageInput"></textarea> 
+    <button type="submit" id="submitButton">Submit</button>
   </form>
   <div class="formEmptyWarning" id="formEmptyWarning">
     <p>Please Fill All Entry Fields.</p>

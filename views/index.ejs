@@ -3,7 +3,7 @@
 <%- include('./partials/header.ejs')%>
 <body>
   <%- include("./partials/nav.ejs")%>
-  <div class="message-container">
+  <div class="messages-container">
     <% messages.forEach(function (message) { %>
       <%- include('./partials/message.ejs', {message}) %>
     <% }); %>

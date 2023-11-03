@@ -14,10 +14,14 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   color: white;
   background-color: var(--background);
   padding: 0;
   font-family: "Roboto Condensed";
+  justify-content: center;
+  align-items: center;
 }
 
 .navbar {
@@ -52,4 +56,59 @@ body {
 .formSubmittedSuccessfullyText {
   display: none;
   color: green;
+}
+
+.messages-container {
+  display: flex;
+  flex-direction: column;
+  width: 55vw;
+  justify-self: center;
+  align-self: center;
+}
+
+.message-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 13px;
+  background-color: var(--secondary);
+  margin: 8px;
+  border-left: 8px solid var(--accent);
+}
+
+#messageForm {
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+}
+
+#messageForm > label {
+  font-size: 21px;
+}
+
+#usernameInput,
+#messageInput
+{
+  color: white;
+  background-color: var(--secondary);
+  border: none;
+  outline: none;
+  padding: 21px;
+  border-radius: 8px;
+  font-size: 21px;
+}
+
+#submitButton {
+  margin-top: 34px;
+  max-width: 89px;
+  height: 55px;
+  font-size: 21px;
+  text-align: center;
+  background-color: var(--primary);
+  border: none;
+  outline: none;
+  border-radius: 13px;
+}
+
+.message-username {
+  margin-bottom: 13px;
 }

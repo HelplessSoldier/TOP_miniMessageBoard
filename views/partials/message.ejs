@@ -1,4 +1,7 @@
 <div class="message-container">
+  <div class="messageText">
   <h2 class="message-username"><%= message.username%></h2>
   <p class="message-body"><%= message.message%></p>
+  </div>
+  <p><%= message.date_added.toLocaleDateString('en-US')%></p>
 </div>
