@@ -52,7 +52,8 @@ async function mongoConnect(url) {
 
 async function getMessages() {
   try {
-    const messages = await Message.find();
+    const messages = await Message.find()
+      .sort({ date_added: -1 })
     return messages;
   } catch (err) {
     console.error(err);
