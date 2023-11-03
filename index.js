@@ -19,4 +19,10 @@ app.get("/new-message", (req, res) => {
   res.render('newMessagePage', { title: "New" });
 })
 
+app.post("/submit-message", (req, res) => {
+  console.log('message submit attempted');
+  console.log(`name: ${req.body.name}`);
+  console.log(`message: ${req.body.message}`);
+})
+
 app.listen(PORT);
