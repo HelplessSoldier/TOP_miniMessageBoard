@@ -5,16 +5,24 @@ document.addEventListener('DOMContentLoaded', (e) => {
   messageForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    if (
-      formData.get("user-name") !== "" &&
-      formData.get("message") !== ""
-    ) {
+    if (validFields(formData)) {
       postMessage(formData);
     } else {
       warning.style.visibility = 'visible';
     }
   })
 })
+
+function validFields(formData) {
+  const userName = formData.get('user-name');
+  const message = formData.get('message');
+
+  if (userName === '' || message === '') {
+    return false;
+  }
+
+  return true;
+}
 
 async function postMessage(formData) {
   try {
