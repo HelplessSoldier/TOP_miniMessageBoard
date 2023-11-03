@@ -6,3 +6,7 @@ body {
 .navbar > a {
   color: white;
 }
+
+.formEmptyWarning {
+  visibility: hidden;
+}
