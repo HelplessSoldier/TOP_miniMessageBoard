@@ -9,4 +9,5 @@ body {
 
 .formEmptyWarning {
   visibility: hidden;
+  color: #ff722b;
 }

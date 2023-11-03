@@ -8,6 +8,7 @@ const PORT = 3000;
 const app = express();
 app.use(morgan("dev"));
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, "/views"))
 
@@ -21,8 +22,11 @@ app.get("/new-message", (req, res) => {
 
 app.post("/submit-message", (req, res) => {
   console.log('message submit attempted');
-  console.log(`name: ${req.body.name}`);
-  console.log(`message: ${req.body.message}`);
+  const userName = req.body['user-name'];
+  const message = req.body.message;
+  console.log(`username: ${userName}`);
+  console.log(`message: ${message}`)
+
 })
 
 app.listen(PORT);
