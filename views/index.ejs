@@ -4,5 +4,10 @@
 <body>
   <h1>this is the index page</h1>
   <%- include("./partials/nav.ejs")%>
+  <div class="message-container">
+    <% messages.forEach(function (message) { %>
+      <%- include('./partials/message.ejs', {message}) %>
+    <% }); %>
+  </div>
 </body>
 </html>
