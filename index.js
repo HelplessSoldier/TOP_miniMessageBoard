@@ -11,8 +11,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, "/views"))
 
 app.get("/", (req, res) => {
-  console.log('root get attempted');
-  res.render('index');
+  res.render('index', { title: "Home" });
 })
 
 app.listen(PORT);
