@@ -17,20 +17,28 @@ app.set('views', path.join(__dirname, "/views"))
 
 app.get("/", (req, res) => {
   res.render('index', { title: "Home" });
-})
+});
 
 app.get("/new-message", (req, res) => {
   res.render('newMessagePage', { title: "New" });
-})
+});
 
-app.post("/submit-message", (req, res) => {
+app.post("/submit-message", async (req, res) => {
   console.log('message submit attempted');
   console.log(req.body)
   const newMessage = new Message({
     username: req.body.username,
     message: req.body.message,
     date_added: Date.now()
-  })
+  });
+
+  try {
+    const savedMessage = await newMessage.save();
+    console.log('New message saved:', savedMessage);
+    res.redirect("/");
+  } catch (err) {
+    console.error(err);
+  }
 })
 
 app.listen(options.PORT);
