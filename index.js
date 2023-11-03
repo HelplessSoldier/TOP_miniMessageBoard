@@ -4,11 +4,9 @@ const path = require("path");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const Message = require("./models/messageSchema");
+const options = require("./options");
 
-const PORT = 3000;
-const MONGODB_URL = "mongodb://127.0.0.1:27017/"
-
-mongoConnect(MONGODB_URL);
+mongoConnect(options.MONGODB_URL());
 
 const app = express();
 app.use(morgan("dev"));
@@ -28,9 +26,14 @@ app.get("/new-message", (req, res) => {
 app.post("/submit-message", (req, res) => {
   console.log('message submit attempted');
   console.log(req.body)
+  const newMessage = new Message({
+    username: req.body.username,
+    message: req.body.message,
+    date_added: Date.now()
+  })
 })
 
-app.listen(PORT);
+app.listen(options.PORT);
 
 async function mongoConnect(url) {
   try {
