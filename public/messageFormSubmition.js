@@ -18,15 +18,23 @@ document.addEventListener('DOMContentLoaded', (e) => {
 
 async function postMessage(formData) {
   try {
+    const username = formData.get('user-name');
+    const message = formData.get('message');
+    const data = {
+      "username": username,
+      "message": message
+    }
     const response = await fetch('/submit-message', {
       method: "POST",
-      body: formData
-    });
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
     if (!response.ok) {
-      throw new Error('Failed to submit the message');
+      throw new Error('Failed to submit message');
     }
-    const data = await response.json();
-    console.log(`Message submitted successfully: ${data}`);
+    console.log('Message submitted successfully');
   } catch (err) {
     console.error(err);
   }
