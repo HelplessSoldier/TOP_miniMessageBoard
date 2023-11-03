@@ -43,6 +43,7 @@ async function postMessage(formData) {
       throw new Error('Failed to submit message');
     }
     console.log('Message submitted successfully');
+    window.location.href = '/';
   } catch (err) {
     console.error(err);
   }
