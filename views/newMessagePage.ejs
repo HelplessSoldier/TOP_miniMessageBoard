@@ -12,15 +12,6 @@
   <div classname="formEmptyWarning" >
     <h3>One or more fields are empty</h3>
   </div>
-  <script>
-    const warning = document.getElementById('formEmptyWarning');
-    document.getElementById('messageForm').addEventListener('submit', (e) => {
-      e.preventDefault();
-      const formData = new FormData(e.target);
-      if (formData.get(user-name) !== "" && formData.get(message) !== "") {
-        
-      }
-    })
-  </script>
+  <script src="messageFormSubmition.js" />
 </body>
 </html>

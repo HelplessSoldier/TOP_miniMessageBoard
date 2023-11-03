@@ -3,6 +3,6 @@ body {
   background-color: #242424;
 }
 
-.navbar {
+.navbar > a {
   color: white;
 }
