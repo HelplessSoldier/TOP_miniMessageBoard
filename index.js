@@ -7,6 +7,7 @@ const PORT = 3000;
 
 const app = express();
 app.use(morgan("dev"));
+app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, "/views"))
 
